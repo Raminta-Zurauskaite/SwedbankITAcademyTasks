@@ -6,13 +6,13 @@ public enum Bike {
 
     public final String bike;
 
-    Bike(String bike){
+    Bike(String bike) {
         this.bike = bike;
     }
 
-    public static Bike valueOfCode(String bike){
-        for (Bike e : values()){
-            if (e.bike.equals(bike)){
+    public static Bike valueOfCode(String bike) {
+        for (Bike e : values()) {
+            if (e.bike.equals(bike)) {
                 return e;
             }
         }

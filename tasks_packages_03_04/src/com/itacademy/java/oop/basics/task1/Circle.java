@@ -1,7 +1,7 @@
 package com.itacademy.java.oop.basics.task1;
 
-public class Circle extends Shape{
-    protected double fieldRadius;
+public class Circle extends Shape {
+    private double fieldRadius;
 
     public Circle(double fieldRadius) {
         this.fieldRadius = fieldRadius;
@@ -10,13 +10,13 @@ public class Circle extends Shape{
     @Override
     double calculateArea(double fieldRadius) {
         //Area of a circle = π * r2
-        return fieldRadius*fieldRadius*Math.PI;
+        return fieldRadius * fieldRadius * Math.PI;
     }
 
     @Override
     double calculatePerimeter(double fieldRadius) {
         //C = 2πR = πD
-        return fieldRadius*2*Math.PI;
+        return fieldRadius * 2 * Math.PI;
     }
 
     @Override

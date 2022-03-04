@@ -15,8 +15,7 @@ public class MountainBike implements Bicycle {
             System.out.println("Given number is negative, please use positive numbers");
         } else if ((speed + increment) > 100) {
             System.out.println("Speed up is too high, use " + (100 - speed) + " instead.");
-        }
-        else{
+        } else {
             speed += speed + increment;
             System.out.println("New speed of mountain bike is " + speed + ".");
         }
@@ -24,11 +23,10 @@ public class MountainBike implements Bicycle {
 
     @Override
     public void applyBrakes(int breakingValue) {
-        if (breakingValue < 0 ){
+        if (breakingValue < 0) {
             System.out.println("Breaking value is negative, use positives numbers.");
-        }
-        else if ((speed - breakingValue) > -10){
-            System.out.println("Breaking value is too high, recommend using " +  " instead.");
+        } else if ((speed - breakingValue) > -10) {
+            System.out.println("Breaking value is too high, recommend using " + (breakingValue - (speed + 10)) + " instead.");
         }
 
     }
