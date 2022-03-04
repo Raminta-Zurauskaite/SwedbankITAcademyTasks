@@ -6,6 +6,18 @@ public class MountainBike implements Bicycle {
 
     @Override
     public void changeGear(int newGear) {
+        if (newGear != -1 && newGear != 1) {
+            System.out.println("Suggested gear value is not allowed, please use -1 or 1 instead.");
+        } else if (newGear == 1 && gear < 20) {
+            gear++;
+            System.out.println("New gear is " + gear);
+        } else if (newGear == -1 && gear > 0) {
+            gear--;
+        } else if (newGear == -1 && gear <= 0) {
+            System.out.println("Gear is below 0.");
+        } else if (newGear == 1 && gear >= 20) {
+            System.out.println("Gear is already at max 20.");
+        }
 
     }
 
@@ -27,8 +39,7 @@ public class MountainBike implements Bicycle {
             System.out.println("Breaking value is negative, use positives numbers.");
         } else if ((speed - breakingValue) > -10) {
             System.out.println("Breaking value is too high, recommend using " + (breakingValue - (speed + 10)) + " instead.");
-        }
-        else {
+        } else {
             speed -= breakingValue;
             System.out.println("New speed is " + speed + ".");
         }
