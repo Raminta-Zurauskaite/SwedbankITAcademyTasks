@@ -16,7 +16,7 @@ public class MountainBike implements Bicycle {
         } else if ((speed + increment) > 100) {
             System.out.println("Speed up is too high, use " + (100 - speed) + " instead.");
         } else {
-            speed += speed + increment;
+            speed += increment;
             System.out.println("New speed of mountain bike is " + speed + ".");
         }
     }
@@ -27,6 +27,10 @@ public class MountainBike implements Bicycle {
             System.out.println("Breaking value is negative, use positives numbers.");
         } else if ((speed - breakingValue) > -10) {
             System.out.println("Breaking value is too high, recommend using " + (breakingValue - (speed + 10)) + " instead.");
+        }
+        else {
+            speed -= breakingValue;
+            System.out.println("New speed is " + speed + ".");
         }
 
     }

@@ -1,7 +1,7 @@
 package com.itacademy.java.oop.basics.task1;
 
 public class Square extends Shape {
-    private double fieldSide;
+    private final double fieldSide;
 
     public Square(double fieldSide) {
         this.fieldSide = fieldSide;

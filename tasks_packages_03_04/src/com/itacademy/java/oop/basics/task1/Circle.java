@@ -1,7 +1,7 @@
 package com.itacademy.java.oop.basics.task1;
 
 public class Circle extends Shape {
-    private double fieldRadius;
+    private final double fieldRadius;
 
     public Circle(double fieldRadius) {
         this.fieldRadius = fieldRadius;
