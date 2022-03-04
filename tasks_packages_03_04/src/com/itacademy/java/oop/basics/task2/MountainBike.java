@@ -1,8 +1,9 @@
 package com.itacademy.java.oop.basics.task2;
 
 public class MountainBike implements Bicycle {
-    protected int gear;
-    protected int speed;
+    private int gear;
+    private int speed;
+    private int maximumSpeed = 100;
 
     @Override
     public void changeGear(int newGear) {
@@ -25,8 +26,8 @@ public class MountainBike implements Bicycle {
     public void speedUp(int increment) {
         if (increment <= 0) {
             System.out.println("Given number is negative, please use positive numbers");
-        } else if ((speed + increment) > 100) {
-            System.out.println("Speed up is too high, use " + (100 - speed) + " instead.");
+        } else if ((speed + increment) > maximumSpeed) {
+            System.out.println("Speed up is too high, use " + (maximumSpeed - speed) + " instead.");
         } else {
             speed += increment;
             System.out.println("New speed of mountain bike is " + speed + ".");
