@@ -1,5 +1,5 @@
 # SwedbankITAcademyTasks
 Tasks completed for Swedbank IT Academy.
 
-test, task1_package, task2_package and task3_package were created on first OOP1 lesson.
-tasks_packages_03_04 was created on 2022_03_4 for second OOP2 lesson.
+<b>OOP1 lesson</b> - test, task1_package, task2_package and task3_package.
+<b>OOP2 lesson</b> - tasks_packages_03_04 was created on 2022_03_4.
