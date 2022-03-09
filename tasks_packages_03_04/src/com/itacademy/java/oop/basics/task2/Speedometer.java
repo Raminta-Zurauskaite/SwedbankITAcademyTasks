@@ -1,4 +1,4 @@
-package com.itacademy.java.oop.basics.task2;
+package oop.basics.task2;
 
 public class Speedometer {
     static Bike chooseWinner(MountainBike mountainBike, RoadBike roadBike) {
@@ -6,6 +6,15 @@ public class Speedometer {
     }
 
     static Bike chooseWinner(int mountainBikeSpeed, int roadBikeSpeed) {
+        if (mountainBikeSpeed > roadBikeSpeed){
+            return Bike.mountain;
+        }
+        else if (roadBikeSpeed > mountainBikeSpeed){
+            return Bike.road;
+        }
+        else {
+
+        }
         return Bike.road; //placeholder
     }
 }

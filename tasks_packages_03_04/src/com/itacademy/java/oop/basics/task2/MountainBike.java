@@ -1,4 +1,4 @@
-package com.itacademy.java.oop.basics.task2;
+package oop.basics.task2;
 
 public class MountainBike implements Bicycle {
     private int gear;
@@ -38,10 +38,10 @@ public class MountainBike implements Bicycle {
     public void applyBrakes(int breakingValue) {
         if (breakingValue < 0) {
             System.out.println("Breaking value is negative, use positives numbers.");
-        } else if ((speed - breakingValue) > -10) {
+        } else if ((speed + breakingValue) < -10) {
             System.out.println("Breaking value is too high, recommend using " + (breakingValue - (speed + 10)) + " instead.");
         } else {
-            speed -= breakingValue;
+            speed += breakingValue;
             System.out.println("New speed is " + speed + ".");
         }
 

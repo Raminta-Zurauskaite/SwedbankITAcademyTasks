@@ -1,4 +1,4 @@
-package com.itacademy.java.oop.basics.task2;
+package oop.basics.task2;
 
 public interface Bicycle {
     void changeGear(int newGear);
