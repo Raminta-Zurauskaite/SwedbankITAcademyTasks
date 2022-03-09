@@ -8,4 +8,7 @@ tasks_packages_03_04/out/
 test/.idea
 collections/.idea/
 collections/out/
-academy-customer-app/
+academy-customer-app/.gradle/
+academy-customer-app/.idea/
+academy-customer-app/build/
+academy-customer-app/gradle/
