@@ -12,11 +12,17 @@ public record Library(List<Book> books) {
         return books.size();
     }
 
-    public Book findBook() {
-    return null;
+    public String findBookByTitle(String title) {
+        Book foundBook = null;
+        for (int i = 0; i < books.size(); i++){
+            if (books.get(i).title() == title){
+                foundBook = books.get(i);
+            }
+        }
+        return String.valueOf(foundBook);
     }
 
-    public int getBookWithMostPages() {
-        return 0;
+    public Book getBookWithMostPages() {
+       return null;
     }
 }
