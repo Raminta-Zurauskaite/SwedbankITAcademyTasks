@@ -88,11 +88,12 @@ public class ListMockTest {
     private MyDictionary dictionary;
 
     @Test
-    private void injectMocks(){
-        when(wordMap.get(any(String.class))).thenReturn("aMeaning");
-        //when(wordMap.get("aWord")).thenReturn("aMeaning");
-
+    public void injectMocks(){
+        when(wordMap.get("aWord")).thenReturn("aMeaning");
         assertEquals("aMeaning", dictionary.getMeaning("aWord"));
+
+        when(wordMap.get(any(String.class))).thenReturn("anything");
+        assertEquals("anything", dictionary.getMeaning(""));
     }
 
 
