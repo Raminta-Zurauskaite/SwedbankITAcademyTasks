@@ -13,4 +13,8 @@ academy-customer-app/.idea/
 academy-customer-app/build/
 academy-customer-app/gradle/
 springboot-demo/
-gradleTestProject/
+gradleTestProject/.idea/
+gradleTestProject/out/
+gradleTestProject/.gradle/
+gradleTestProject/gradle/
+gradleTestProject/build/
