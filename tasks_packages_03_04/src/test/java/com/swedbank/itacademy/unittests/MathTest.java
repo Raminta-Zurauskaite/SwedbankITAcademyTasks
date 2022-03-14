@@ -1,6 +1,9 @@
 package com.swedbank.itacademy.unittests;
 
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 
 public class MathTest {
     @BeforeAll
