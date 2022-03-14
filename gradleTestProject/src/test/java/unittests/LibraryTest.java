@@ -35,9 +35,9 @@ public class LibraryTest {
 
         spyBooks.add(new Book(5, "title"));
 
-        assertEquals(1, library.getAllBooks().size());
-        assertEquals(5, library.getAllBooks().get(0).pages());
-        assertEquals("title", library.getAllBooks().get(0).title());
+        assertEquals(1, library.getAllBooks(spyBooks).size());
+        assertEquals(5, library.getAllBooks(spyBooks).get(0).pages());
+        assertEquals("title", library.getAllBooks(spyBooks).get(0).title());
     }
 
     @Test
@@ -46,16 +46,16 @@ public class LibraryTest {
         spyBooks.add(new Book(5, "test"));
         spyBooks.add(new Book(3, "bible"));
         spyBooks.add(new Book(26, "newTitle"));
-        assertEquals(3, library.getNumberOfBooks());
+        assertEquals(3, library.getNumberOfBooks(spyBooks));
 
         spyBooks.add(new Book(5, "test"));
         spyBooks.add(new Book(26, "newTitle"));
-        assertEquals(5, library.getNumberOfBooks());
+        assertEquals(5, library.getNumberOfBooks(spyBooks));
 
         spyBooks.add(new Book(5, "test"));
         spyBooks.add(new Book(3, "bible"));
         spyBooks.add(new Book(26, "newTitle"));
-        assertEquals(8, library.getNumberOfBooks());
+        assertEquals(8, library.getNumberOfBooks(spyBooks));
     }
 
     @Test

@@ -5,11 +5,11 @@ import java.util.List;
 
 public record Library(List<Book> books) {
 
-    public List<Book> getAllBooks() {
+    public List<Book> getAllBooks(List<Book> books) {
         return books;
     }
 
-    public int getNumberOfBooks() {
+    public int getNumberOfBooks(List<Book> books) {
         return books.size();
     }
 
