@@ -30,13 +30,13 @@ public class MathTest {
                 //() -> Assertions.assertEquals(2, actual),
                 () -> Assertions.assertEquals(1, actual),
                 () -> Assertions.assertEquals(1, actual)
-                );
+        );
     }
 
     @Test
     public void catchThrowable() {
         Assertions.assertThrows(ArithmeticException.class, () -> {
-            Math.floorDiv(0,0);
+            Math.floorDiv(0, 0);
         });
     }
 }
