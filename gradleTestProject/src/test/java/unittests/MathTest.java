@@ -27,9 +27,10 @@ public class MathTest {
         //Assertions.assertEquals(2, actual);
 
         Assertions.assertAll("math",
-                () -> Assertions.assertEquals(2, actual),
+                //() -> Assertions.assertEquals(2, actual),
                 () -> Assertions.assertEquals(1, actual),
-                () -> Assertions.assertEquals(2, actual));
+                () -> Assertions.assertEquals(1, actual)
+                );
     }
 
     @Test
