@@ -15,3 +15,10 @@ gradleTestProject/out/
 gradleTestProject/.gradle/
 gradleTestProject/gradle/
 gradleTestProject/build/
+springBoot/
+springboot-demo/
+demospringboot/.idea/
+demospringboot/out/
+demospringboot/.gradle/
+demospringboot/gradle/
+demospringboot/build/
