@@ -1,30 +1,39 @@
 package com.swedbank.itacademy;
 
-import java.util.Comparator;
 import java.util.List;
 
 public record Library(List<Book> books) {
 
-    public List<Book> getAllBooks(List<Book> books) {
+    public List<Book> getAllBooks() {
         return books;
     }
 
-    public int getNumberOfBooks(List<Book> books) {
+    public int getNumberOfBooks() {
         return books.size();
     }
 
-    public String findBookByTitle(String title, List<Book> books) {
+    public Book findBookByTitle(String title) {
         Book foundBook = null;
         for (int i = 0; i < books.size(); i++) {
-            if (books.get(i).title() == title) {
+            if (books.get(i).getTitle() == title) {
                 foundBook = books.get(i);
             }
         }
-        return String.valueOf(foundBook);
+        return foundBook;
     }
 
-    public String getBookWithMostPages(List<Book> books) {
-        String maxBookPages = books.stream().max(Comparator.comparingInt(Book::pages)).toString();
-        return maxBookPages;
+    public Book getBookWithMostPages() {
+        if (books.isEmpty()) {
+            throw new RuntimeException();
+        }
+        Book bookWithHighestPageCount = books.get(0);
+
+        for (int i = 1; i < books.size(); i++) {
+            Book book = books.get(i);
+            if (book.getPages() > bookWithHighestPageCount.getPages()) {
+                bookWithHighestPageCount = book;
+            }
+        }
+        return bookWithHighestPageCount;
     }
 }

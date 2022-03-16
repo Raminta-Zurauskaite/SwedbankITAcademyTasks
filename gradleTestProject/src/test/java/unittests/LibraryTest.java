@@ -2,6 +2,7 @@ package unittests;
 
 import com.swedbank.itacademy.Book;
 import com.swedbank.itacademy.Library;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -14,6 +15,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.mockito.Mockito.spy;
+import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 public class LibraryTest {
@@ -24,69 +28,54 @@ public class LibraryTest {
     @InjectMocks
     private Library library;
 
-    @Spy
-    List<Book> spyBooks = new ArrayList<Book>();
-
     @Test
     public void ShouldGetBooks() {
-        //Without @Spy
-        /*when(mockedBooks.size()).thenReturn(1);
-        when(mockedBooks.get(0)).thenReturn(new Book(5, "title"));*/
+        when(mockedBooks.size()).thenReturn(1);
+        when(mockedBooks.get(0)).thenReturn(new Book(5, "title"));
 
-        spyBooks.add(new Book(5, "title"));
-
-        assertEquals(1, library.getAllBooks(spyBooks).size());
-        assertEquals(5, library.getAllBooks(spyBooks).get(0).pages());
-        assertEquals("title", library.getAllBooks(spyBooks).get(0).title());
+        assertEquals(1, library.getAllBooks().size());
+        assertEquals(5, library.getAllBooks().get(0).getPages());
+        assertEquals("title", library.getAllBooks().get(0).getTitle());
     }
 
     @Test
     public void ShouldGetBookNumber() {
 
-        spyBooks.add(new Book(5, "test"));
-        spyBooks.add(new Book(3, "bible"));
-        spyBooks.add(new Book(26, "newTitle"));
-        assertEquals(3, library.getNumberOfBooks(spyBooks));
+        when(mockedBooks.size()).thenReturn(3);
+        assertEquals(3, library.getNumberOfBooks());
 
-        spyBooks.add(new Book(5, "test"));
-        spyBooks.add(new Book(26, "newTitle"));
-        assertEquals(5, library.getNumberOfBooks(spyBooks));
+        when(mockedBooks.size()).thenReturn(5);
+        assertEquals(5, library.getNumberOfBooks());
 
-        spyBooks.add(new Book(5, "test"));
-        spyBooks.add(new Book(3, "bible"));
-        spyBooks.add(new Book(26, "newTitle"));
-        assertEquals(8, library.getNumberOfBooks(spyBooks));
+        when(mockedBooks.size()).thenReturn(8);
+        assertEquals(8, library.getNumberOfBooks());
     }
 
     @Test
     public void ShouldFindBookByTitle() {
-        //Without @Spy
-        /*when(mockedBooks.size()).thenReturn(3);
+        when(mockedBooks.size()).thenReturn(3);
         when(mockedBooks.get(0)).thenReturn(new Book(5, "newTitle"));
         when(mockedBooks.get(1)).thenReturn(new Book(4, "bible"));
-        when(mockedBooks.get(2)).thenReturn(new Book(2, "test"));*/
+        when(mockedBooks.get(2)).thenReturn(new Book(2, "test"));
 
-        spyBooks.add(new Book(5, "test"));
-        spyBooks.add(new Book(3, "bible"));
-        spyBooks.add(new Book(26, "newTitle"));
-
-        assertEquals("Book[pages=26, title=newTitle]", library.findBookByTitle("newTitle", spyBooks));
-        assertEquals("Book[pages=3, title=bible]", library.findBookByTitle("bible", spyBooks));
-        assertEquals("Book[pages=5, title=test]", library.findBookByTitle("test", spyBooks));
+        assertEquals("Book{pages=5, Title='newTitle'}", library.findBookByTitle("newTitle").toString());
+        assertEquals("Book{pages=4, Title='bible'}", library.findBookByTitle("bible").toString());
+        assertEquals("Book{pages=2, Title='test'}", library.findBookByTitle("test").toString());
     }
 
     @Test
     public void ShouldFindBookWithMostPages() {
-        spyBooks.add(new Book(5, "test"));
-        spyBooks.add(new Book(3, "bible"));
-        spyBooks.add(new Book(26, "newTitle"));
-        //spyBooks.add(new Book(100, "wrong"));
+        when(mockedBooks.get(0)).thenReturn(new Book(10, "mocks"));
+        when(mockedBooks.get(1)).thenReturn(new Book(44, "mocks2"));
+        when(mockedBooks.size()).thenReturn(2);
+        Book actual = library.getBookWithMostPages();
 
-        Mockito.verify(spyBooks).add(new Book(5, "test"));
-        Mockito.verify(spyBooks).add(new Book(3, "bible"));
-        Mockito.verify(spyBooks).add(new Book(26, "newTitle"));
-        //Mockito.verify(spyBooks).add(new Book(100, "wrong"));
+        assertEquals("Book{pages=44, Title='mocks2'}", library.getBookWithMostPages().toString());
+    }
 
-        assertEquals("Optional[Book[pages=26, title=newTitle]]", library.getBookWithMostPages(spyBooks));
+    @Test
+    public void ShouldFindBookWithMostPagesWhenLibraryIsEmpty(){
+        when(mockedBooks.isEmpty()).thenReturn(true);
+        assertThrows(RuntimeException.class, () -> library.getBookWithMostPages());
     }
 }
