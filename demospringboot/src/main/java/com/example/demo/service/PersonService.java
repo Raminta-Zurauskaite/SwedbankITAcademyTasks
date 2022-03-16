@@ -19,7 +19,14 @@ public class PersonService {
         this.personRepository = personRepository;
     }
 
-    public List<Person> fetchPersons() {
+    public List<Person> fetchPersons(String firstName, String lastName) {
+        if (firstName != null && lastName != null){
+            return personRepository.findAllByLastNameAndFirstName(lastName, firstName);
+        } else if(firstName != null){
+            return personRepository.findAllByFirstName(firstName);
+        } else if (lastName != null) {
+            return personRepository.findAllByLastName(lastName);
+        }
         return personRepository.findAll();
     }
 

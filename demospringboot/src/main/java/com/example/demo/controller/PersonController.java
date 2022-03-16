@@ -37,9 +37,8 @@ public class PersonController {
             responseCode = "200",
             description = "A list of person objects",
             content = @Content(schema = @Schema(implementation = PersonResponse.class)))
-    public List<PersonResponse> fetchPersons() {
-        List<Person> repositoryPersons = personService.fetchPersons();
-        return repositoryPersons.stream()
+    public List<PersonResponse> fetchPersons(@RequestParam(required = false) String firstName, @RequestParam(required = false) String lastName) {
+        return personService.fetchPersons(firstName, lastName).stream()
                 .map(p -> new PersonResponse(p.getFirstName(), p.getLastName(), p.getEmail(), p.getPhone()))
                 .collect(Collectors.toList());
     }
