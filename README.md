@@ -8,3 +8,5 @@ Tasks completed for Swedbank IT Academy.
 <b>Collections lesson</b> - collections.
 
 <b>Unit test lesson</b> - gradleTestProject.
+
+<b>Spring boot lesson</b> - demospringboot.
